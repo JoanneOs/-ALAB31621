@@ -1,13 +1,16 @@
 // Get the start button and message area from the HTML
-const gameButton = document.getElementById("startGame");
-const messageArea = document.getElementById("gameResult");
+//const gameButton = document.getElementById("startGame");
+//const messageArea = document.getElementById("gameResult");
 
 
 //start button in js
 
 let btn = document.createElement('button');
 btn.innerText = 'Start Game';
+btn.id='startGame';
 document.body.appendChild(btn);
+
+const messageArea = document.getElementById("gameResult");
 
 // Function to run the guessing game
 function playGame() {
@@ -46,6 +49,6 @@ let userGuess = Number(userInput);
 
 // Run the game when the button is clicked
 //gameButton.addEventListener("click", playGame);
-gameButton.onclick = playGame;
+btn.onclick = playGame;
 
 
