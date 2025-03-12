@@ -2,11 +2,24 @@
 //const gameButton = document.getElementById("startGame");
 //const messageArea = document.getElementById("gameResult");
 
+// Create the <h1> element
+const header = document.createElement('h1');
+
+// Set the text content of the <h1>
+header.textContent = 'Guess the Number Game!';
+
+// Append the <h1> element to the body (or another container)
+document.body.appendChild(header);
+
+
 
 //start button in js
 
 let btn = document.createElement('button');
+let btn2 = document.createElement('button2');
+
 btn.innerText = 'Start Game';
+
 btn.id='startGame';
 document.body.appendChild(btn);
 
