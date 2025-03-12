@@ -2,6 +2,13 @@
 const gameButton = document.getElementById("startGame");
 const messageArea = document.getElementById("gameResult");
 
+
+//start button in js
+
+let btn = document.createElement('button');
+btn.innerText = 'Start Game';
+document.body.appendChild(btn);
+
 // Function to run the guessing game
 function playGame() {
 
@@ -33,7 +40,7 @@ let userGuess = Number(userInput);
    // Use setTimeout to display the second message after 1 second (1000 milliseconds)
    setTimeout(function() {
      alert(" You can try again");
-   }, 1000);
+   }, 5000);
   }
 }
 
