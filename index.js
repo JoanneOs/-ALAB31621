@@ -1,67 +1,69 @@
-// Get the start button and message area from the HTML
-//const gameButton = document.getElementById("startGame");
-//const messageArea = document.getElementById("gameResult");
-
 // Create the <h1> element
 const header = document.createElement('h1');
-
-// Set the text content of the <h1>
 header.textContent = 'Guess the Number Game!';
-
-// Append the <h1> element to the body (or another container)
 document.body.appendChild(header);
 
-
-
-//start button in js
-
+// Start buttons in JavaScript
 let btn = document.createElement('button');
-let btn2 = document.createElement('button2');
+let btn2 = document.createElement('button');
 
-btn.innerText = 'Start Game';
+// Set button texts
+btn.innerText = 'Start Game 1';
+btn2.innerText = 'Start Game 2';
 
-btn.id='startGame';
+// Assign IDs and append buttons
+btn.id = 'startGame';
+btn2.id = 'startGame2';
 document.body.appendChild(btn);
+document.body.appendChild(btn2);
 
-const messageArea = document.getElementById("gameResult");
+// Create message areas for both games
+let messageArea = document.createElement('div');
+let messageArea2 = document.createElement('div');
 
-// Function to run the guessing game
+// Assign IDs for later use
+messageArea.id = 'gameResult';
+messageArea2.id = 'gameResult2';
+
+btn.style.marginBottom = '20px';  // Adds 20px of space below the first button
+
+
+// Append the message areas to the body
+document.body.appendChild(messageArea);
+document.body.appendChild(messageArea2);
+
+// Function to run the guessing game for button 1
 function playGame() {
+    const randomNumber = Math.floor(Math.random() * 10);
+    let userInput = prompt("Pick a number between 1 and 10:");
+    let userGuess = Number(userInput);
 
-    //const randomNumber = Math.floor(Math.random()); wrong the guessing number allways 0, becaues its decimal , will mutyplying it by 10
-    const randomNumber = Math.floor(Math.random()*10);
-   // console.log("randomnumve= "+randomNumber);
-  // Pick a random number between 1 and 10
-  //const randomNumber = Math.floor(Math.random() * 10) + 1;
-  //const randomNumber = 4; //we can make the guessing number constant as 4 for example
-  // Prompt the user to make a guess
-//   const userGuess = parseInt(prompt("Pick a number between 1 and 10:"), 10);
-
-// Ask the user to pick a number and store it as a string
-let userInput = prompt("Pick a number between 1 and 10:");
-/*"This page says" in the prompt window comes from how the prompt() function works in the browser. By default, when you use prompt() to get user input, the browser automatically displays "This page says" to indicate that the message comes from the current webpage.
-*/
-// Convert the input to an integer using Number() instead of parseInt
-let userGuess = Number(userInput);
-
-  // Compare the guess with the random number
-  if (userGuess === randomNumber) {
-    messageArea.textContent = `Congratulations! The number was ${randomNumber}.`;
-  } else {
-   // messageArea.textContent = `Oops! The number was ${randomNumber}. Better luck next time!`;
-   // messageArea.textContent = `you can try again!`;
-
-   alert(`Oops! The number was ${randomNumber}. Better luck next time!`);
-
-   // Use setTimeout to display the second message after 1 second (1000 milliseconds)
-   setTimeout(function() {
-     alert(" You can try again");
-   }, 2000);
-  }
+    if (userGuess === randomNumber) {
+        messageArea.textContent = `Congratulations! The number was ${randomNumber}.`;
+    } else {
+        alert(`Oops! The number was ${randomNumber}. Better luck next time!`);
+        setTimeout(function() {
+            alert("You can try again.");
+        }, 2000);
+    }
 }
 
-// Run the game when the button is clicked
-//gameButton.addEventListener("click", playGame);
+// Function to run the guessing game for button 2
+function playGame2() {
+    const randomNumber2 = Math.floor(Math.random() * 10+10) ;
+    let userInput2 = prompt("Pick a number between 10 and 20 ");
+    let userGuess2 = Number(userInput2);
+
+    if (userGuess2 === randomNumber2) {
+        messageArea2.textContent = `Congratulations! The number was ${randomNumber2}.`;
+    } else {
+        alert(`Oops! The number was ${randomNumber2}. Better luck next time!`);
+        setTimeout(function() {
+            alert("You can try again.");
+        }, 2000);
+    }
+}
+
+// Run the games when the buttons are clicked
 btn.onclick = playGame;
-
-
+btn2.onclick = playGame2;
