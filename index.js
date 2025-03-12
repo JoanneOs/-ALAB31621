@@ -43,7 +43,7 @@ let userGuess = Number(userInput);
    // Use setTimeout to display the second message after 1 second (1000 milliseconds)
    setTimeout(function() {
      alert(" You can try again");
-   }, 5000);
+   }, 2000);
   }
 }
 
